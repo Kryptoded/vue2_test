@@ -64,6 +64,7 @@ export default {
   display: flex;
   flex-wrap: nowrap;
   padding: 0 10px;
+  width: 100%;
   border-radius: 10px;
 }
 

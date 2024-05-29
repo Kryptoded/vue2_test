@@ -1,38 +1,55 @@
 <template>
   <div class="settings-page-card">
-    <AppButton
-      :icon="trashIcon"
-      class="btn-delete"
-      color="negative"
-      @click.native="$emit('delete', text)"
-    />
-    <indexPageCard :text="text" />
+    <div class="btns-wrapper">
+      <AppButton
+        :icon="trashIcon"
+        class="btn-delete"
+        color="negative"
+        @click.native="$emit('delete')"
+      />
+      <AppButton
+        :icon="iconsEdit"
+        class="btn-delete"
+        color="primary"
+        @click.native="$emit('edit')"
+      />
+    </div>
+    <indexPageCard :text="card.text" />
   </div>
 </template>
 
 <script>
-import iconsTrash from '@/ui/icons/Trash.vue'
+import iconsTrash from '@/ui/icons/Trash.vue';
+import iconsEdit from "@/ui/icons/Edit.vue";
+
 export default {
   props: {
-    text: {
-      type: String,
-      default: ''
+    card: {
+      type: Object,
+      default: ()=>({})
     }
   },
   created() {
-    this.trashIcon = iconsTrash
+    this.trashIcon = iconsTrash;
+    this.iconsEdit = iconsEdit;
   },
 }
 </script>
 
 <style scoped>
 .btn-delete {
-  position: absolute;
-  top: -10px;
-  right: -10px;
   width: 30px;
   height: 30px;
   padding:  3px;
+  margin-right: 10px;
+}
+
+.btns-wrapper {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: fit-content;
+  display: flex;
 }
 
 .settings-page-card {

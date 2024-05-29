@@ -24,6 +24,11 @@ export const mutations = {
     state.list.splice(state.list.indexOf(obj), 1);
     changeLocalStorage(state.list);
   },
+  edit(state, {item, value}) {
+    const index = state.list.indexOf(item)
+    state.list[index].text = value;
+    changeLocalStorage(state.list);
+  }
 }
 
 export const actions = {
@@ -35,5 +40,8 @@ export const actions = {
   },
   removeItem(context, obj) {
     context.commit('remove', obj);
+  },
+  editItem(context, {item, value}) {
+    context.commit('edit', {item, value})
   }
 }

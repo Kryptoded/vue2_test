@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  name: 'IndexPage',
   computed: {
     cards() {
       return this.$store.state.cards.list;

@@ -5,23 +5,21 @@
   </div>
 </template>
 <script>
+
 export default {
   props: {
     text: {
       type: String,
       default: '',
     },
-  },
-  data() {
-    return {}
-  },
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .index-page_card {
   padding: 10px;
-  border: 1px solid var(--primary);
+  border: 2px solid var(--primary);
   border-radius: 10px;
   width: 150px;
   height: 150px;
@@ -30,6 +28,7 @@ export default {
   overflow: auto;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .index-page_card_text {
   max-width: 100%;

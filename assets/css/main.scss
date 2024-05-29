@@ -25,3 +25,12 @@
   transform: translateY(0);
 }
 
+.dialog-enter-active,
+.dialog-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.dialog-enter,
+.dialog-leave-to {
+  opacity: 0;
+}
