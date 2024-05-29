@@ -1,21 +1,41 @@
 <template>
   <div class="index-page_card">
-    {{ text }}
+    <slot></slot>
+    <div class="index-page_card_text">{{ text }}</div>
   </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        text: 'sdfdsf'
-      }
-    }
-  }
+export default {
+  props: {
+    text: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {}
+  },
+}
 </script>
 
-<style scoped lang="SCSS">
+<style scoped lang="scss">
 .index-page_card {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  text-align: center;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+}
+.index-page_card_text {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: auto;
+  user-select: none;
 }
 </style>
