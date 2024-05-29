@@ -8,6 +8,20 @@
 </template>
 <script>
 export default {
+  methods: {
+    updateStore() {
+      this.$store.dispatch('cards/initialize');
+    }
+  },
+  mounted() {
+    window.addEventListener('storage', this.updateStore);
+  },
+  beforeMount() {
+    window.removeEventListener('storage', this.updateStore);
+  },
+  created() {
+    this.updateStore();
+  },
 }
 </script>
 <style scoped>

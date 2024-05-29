@@ -4,7 +4,7 @@
       :icon="trashIcon"
       class="btn-delete"
       color="negative"
-      @click="$emit('delete', text)"
+      @click.native="$emit('delete', text)"
     />
     <indexPageCard :text="text" />
   </div>

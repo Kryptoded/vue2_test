@@ -8,14 +8,20 @@ export const state = () => ({
 
 export const mutations = {
   initialize(state) {
-    state.list = JSON.parse(localStorage.getItem('cards', []));
+    const cards = localStorage.getItem('cards')
+    if (cards) {
+      state.list = JSON.parse(cards);
+    }
   },
   add(state, text) {
-    state.list.push(text);
+    state.list.push({
+      text,
+      id: new Date().getTime()
+    });
     changeLocalStorage(state.list);
   },
-  remove(state, text) {
-    state.list.splice(state.list.indexOf(text), 1);
+  remove(state, obj) {
+    state.list.splice(state.list.indexOf(obj), 1);
     changeLocalStorage(state.list);
   },
 }
@@ -27,7 +33,7 @@ export const actions = {
   addItem(context, text) {
     context.commit('add', text);
   },
-  removeItem(context, text) {
-    context.commit('remove', text);
+  removeItem(context, obj) {
+    context.commit('remove', obj);
   }
 }
